@@ -1,6 +1,8 @@
+import aoc.aoc2205
+import aoc.aoc2206
+
 val commandMap = mapOf(
-    "aoc2205" to ::aoc2205,
-    "aoc2206" to ::aoc2206
+    "aoc2205" to ::aoc2205, "aoc2206" to ::aoc2206
 )
 
 fun printHelp() {
@@ -19,7 +21,7 @@ fun main(args: Array<String>) {
     val entrypointName = args[0]
     val entrypoint = commandMap[entrypointName]
     if (entrypoint == null) {
-        println("Unknown entrypoint: $entrypoint")
+        println("Unknown entrypoint: $entrypointName")
         printHelp()
         return
     }

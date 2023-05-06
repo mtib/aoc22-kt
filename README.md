@@ -10,7 +10,7 @@ Run the project without any arguments to list available entrypoints.
 
 ### [Day 5: Supply Stacks](https://adventofcode.com/2022/day/5)
 
-[Source](./src/main/kotlin/Aoc2205.kt)
+[Source](./src/main/kotlin/aoc/Aoc2205.kt)
 
 ```sh
 gradle run --args="aoc2205"
@@ -18,7 +18,7 @@ gradle run --args="aoc2205"
 
 ### [Day 6: Tuning Trouble](https://adventofcode.com/2022/day/6)
 
-[Source](./src/main/kotlin/Aoc2206.kt) (WIP)
+[Source](./src/main/kotlin/aoc/Aoc2206.kt) (WIP)
 
 ```sh
 gradle run --args="aoc2206"

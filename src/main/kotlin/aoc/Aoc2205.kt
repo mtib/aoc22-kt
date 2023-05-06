@@ -1,7 +1,6 @@
-import okio.FileSystem
-import okio.Path.Companion.toPath
-import okio.buffer
-import okio.use
+package aoc
+
+import utils.readAocFile
 
 /*
 This file implements a solution to this challenge: https://adventofcode.com/2022/day/5
@@ -27,10 +26,10 @@ class CraneState(description: String) {
             val descriptionLineIndex = 1 + index * 4 // assumes single character crane names
             for (line in descriptionLines.slice(0 until descriptionLines.size - 1)) {
                 if (line.length < descriptionLineIndex || line[descriptionLineIndex] == ' ') {
-                    continue;
+                    continue
                 }
-                val container: Container = line[descriptionLineIndex];
-                stacks[crane]!!.addLast(container);
+                val container: Container = line[descriptionLineIndex]
+                stacks[crane]!!.addLast(container)
             }
         }
 
@@ -70,11 +69,7 @@ data class Move(val origin: CraneName, val destination: CraneName, val amount: I
 }
 
 fun aoc2205() {
-    val data = FileSystem.SYSTEM.source("./resources/aoc22_05_input.txt".toPath()).use { source ->
-        source.buffer().use { buffer ->
-            buffer.readUtf8()
-        }
-    }
+    val data = readAocFile(5)
     val craneStateDescription = run {
         var numNewlines = 0
         data.takeWhile { char ->
@@ -89,7 +84,7 @@ fun aoc2205() {
     val moves = run {
         val moves = mutableListOf<Move>()
         data.lines().forEach { line ->
-            val match = Regex("""move (\d+) from (\d) to (\d)""").matchEntire(line);
+            val match = Regex("""move (\d+) from (\d) to (\d)""").matchEntire(line)
             match?.run {
                 val numCrates = groupValues[1].toInt()
                 val origin: CraneName = groupValues[2].toInt()
@@ -101,7 +96,7 @@ fun aoc2205() {
         moves.toList()
     }
 
-    val craneStateFirst = CraneState(craneStateDescription);
+    val craneStateFirst = CraneState(craneStateDescription)
     moves.forEach { move ->
         for (i in 0 until move.amount) {
             craneStateFirst.performMove(move.origin, move.destination)
@@ -109,7 +104,7 @@ fun aoc2205() {
      }
     println("1st part result: ${craneStateFirst.readTopString()}")
 
-    val craneStateSecond = CraneState(craneStateDescription);
+    val craneStateSecond = CraneState(craneStateDescription)
     moves.forEach { move ->
         craneStateSecond.performMoveMultiple(move.origin, move.destination, move.amount)
     }
