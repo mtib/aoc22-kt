@@ -1,19 +1,28 @@
 val commandMap = mapOf(
-    "aoc22_03" to ::aoc22_03,
-    "aoc22_04" to ::aoc22_04
+    "aoc2205" to ::aoc2205,
+    "aoc2206" to ::aoc2206
 )
+
+fun printHelp() {
+    println("Usage: <entrypoint>")
+    println("")
+    println("Available entrypoints:")
+    commandMap.keys.forEach { println(" - \"$it\"") }
+}
 
 fun main(args: Array<String>) {
     if (args.size != 1) {
         println("Unexpected number of arguments")
+        printHelp()
         return
     }
-    val commandName = args[0]
-    val command = commandMap[commandName];
-    if (command == null) {
-        println("Unknown command")
+    val entrypointName = args[0]
+    val entrypoint = commandMap[entrypointName]
+    if (entrypoint == null) {
+        println("Unknown entrypoint: $entrypoint")
+        printHelp()
         return
     }
 
-    command()
+    entrypoint()
 }

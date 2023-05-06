@@ -3,6 +3,10 @@ import okio.Path.Companion.toPath
 import okio.buffer
 import okio.use
 
+/*
+This file implements a solution to this challenge: https://adventofcode.com/2022/day/5
+ */
+
 typealias CraneName = Int
 typealias Container = Char
 
@@ -65,9 +69,8 @@ class Move(val origin: CraneName, val destination: CraneName, val amount: Int) {
     }
 }
 
-fun aoc22_04() {
-    println("Hello, aoc22_04!")
-    val data = FileSystem.SYSTEM.source("./src/nativeMain/resources/aoc22_04_input.txt".toPath()).use { source ->
+fun aoc2205() {
+    val data = FileSystem.SYSTEM.source("./src/nativeMain/resources/aoc22_05_input.txt".toPath()).use { source ->
         source.buffer().use { buffer ->
             buffer.readUtf8()
         }
