@@ -61,7 +61,7 @@ class CraneState(description: String) {
     }
 }
 
-class Move(val origin: CraneName, val destination: CraneName, val amount: Int) {
+data class Move(val origin: CraneName, val destination: CraneName, val amount: Int) {
     init {
         if (amount <= 0) {
             throw Exception("Invalid amount: $amount")
@@ -70,7 +70,7 @@ class Move(val origin: CraneName, val destination: CraneName, val amount: Int) {
 }
 
 fun aoc2205() {
-    val data = FileSystem.SYSTEM.source("./src/nativeMain/resources/aoc22_05_input.txt".toPath()).use { source ->
+    val data = FileSystem.SYSTEM.source("./resources/aoc22_05_input.txt".toPath()).use { source ->
         source.buffer().use { buffer ->
             buffer.readUtf8()
         }

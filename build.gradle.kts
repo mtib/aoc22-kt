@@ -1,31 +1,26 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
-    kotlin("multiplatform") version "1.8.20"
+    kotlin("jvm") version "1.8.20"
+    application
 }
 
-group = "me.markus"
+group = "dev.mtib"
 version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
+val okioVersion = "3.3.0"
+dependencies {
+    implementation("com.squareup.okio:okio:$okioVersion")
+}
+
 kotlin {
-    sourceSets {
-        val okioVersion = "3.3.0"
-        val commonMain by getting {
-            dependencies {
-                implementation("com.squareup.okio:okio:$okioVersion")
-            }
-        }
-        val commonTest by getting {
-            dependencies {
-                implementation("com.squareup.okio:okio-fakefilesystem:$okioVersion")
-            }
-        }
-    }
-    macosArm64("native") {
-        binaries {
-            executable()
-        }
-    }
+    jvmToolchain(8)
+}
+
+application {
+    mainClass.set("MainKt")
 }
