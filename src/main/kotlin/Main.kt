@@ -1,8 +1,11 @@
 import aoc.aoc2205
 import aoc.aoc2206
+import aoc.aoc2207
 
 val commandMap = mapOf(
-    "aoc2205" to ::aoc2205, "aoc2206" to ::aoc2206
+    "aoc2205" to ::aoc2205,
+    "aoc2206" to ::aoc2206,
+    "aoc2207" to ::aoc2207
 )
 
 fun printHelp() {

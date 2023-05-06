@@ -18,8 +18,16 @@ gradle run --args="aoc2205"
 
 ### [Day 6: Tuning Trouble](https://adventofcode.com/2022/day/6)
 
-[Source](./src/main/kotlin/aoc/Aoc2206.kt) (WIP)
+[Source](./src/main/kotlin/aoc/Aoc2206.kt)
 
 ```sh
 gradle run --args="aoc2206"
+```
+
+### [Day 7: No Space Left On Device](https://adventofcode.com/2022/day/7)
+
+[Source](./src/main/kotlin/aoc/Aoc2207.kt)
+
+```sh
+gradle run --args="aoc2207"
 ```
